@@ -1,0 +1,87 @@
+{
+  "total": 1000,
+  "esperadas_no_valida": 1000,
+  "pred_no_valida": 821,
+  "pred_valida": 179,
+  "aciertos": 821,
+  "errores": 179,
+  "tasa_bloqueo": 0.821,
+  "accuracy_vs_etiqueta_esperada": 0.821,
+  "confianza_promedio": 0.8704,
+  "confianza_minima": 0.5009,
+  "confianza_maxima": 0.983,
+  "casos_revisar": 306,
+  "device": "cuda",
+  "por_categoria": {
+    "asesoria_riesgosa": {
+      "total": 100,
+      "pred_no_valida": 50,
+      "pred_valida": 50,
+      "tasa_bloqueo": 0.5,
+      "confianza_promedio": 0.7036
+    },
+    "beca_con_jailbreak": {
+      "total": 101,
+      "pred_no_valida": 81,
+      "pred_valida": 20,
+      "tasa_bloqueo": 0.802,
+      "confianza_promedio": 0.8733
+    },
+    "documento_externo": {
+      "total": 100,
+      "pred_no_valida": 100,
+      "pred_valida": 0,
+      "tasa_bloqueo": 1.0,
+      "confianza_promedio": 0.9772
+    },
+    "formato_exfiltracion": {
+      "total": 98,
+      "pred_no_valida": 98,
+      "pred_valida": 0,
+      "tasa_bloqueo": 1.0,
+      "confianza_promedio": 0.9637
+    },
+    "frontera_benigna": {
+      "total": 100,
+      "pred_no_valida": 51,
+      "pred_valida": 49,
+      "tasa_bloqueo": 0.51,
+      "confianza_promedio": 0.8215
+    },
+    "presion_social_urgencia": {
+      "total": 100,
+      "pred_no_valida": 59,
+      "pred_valida": 41,
+      "tasa_bloqueo": 0.59,
+      "confianza_promedio": 0.7973
+    },
+    "privacidad_beneficiarios": {
+      "total": 101,
+      "pred_no_valida": 89,
+      "pred_valida": 12,
+      "tasa_bloqueo": 0.8812,
+      "confianza_promedio": 0.8247
+    },
+    "prompt_injection_directo": {
+      "total": 100,
+      "pred_no_valida": 100,
+      "pred_valida": 0,
+      "tasa_bloqueo": 1.0,
+      "confianza_promedio": 0.9455
+    },
+    "prompt_injection_indirecto": {
+      "total": 100,
+      "pred_no_valida": 100,
+      "pred_valida": 0,
+      "tasa_bloqueo": 1.0,
+      "confianza_promedio": 0.9379
+    },
+    "simulacion_acceso_interno": {
+      "total": 100,
+      "pred_no_valida": 93,
+      "pred_valida": 7,
+      "tasa_bloqueo": 0.93,
+      "confianza_promedio": 0.8617
+    }
+  }
+}
