@@ -173,7 +173,7 @@ def convert_dataframe_to_hf_dataset(df_split, label2id):
     return Dataset.from_pandas(dataset_df, preserve_index=False)
 
 
-# Funcion para tokenizar el texto
+# Funcion para tokenizar el texto, por ejemplo tensor([[101, 1045, 12524, 1045,...]])
 def tokenize_function(example):
     return tokenizer(
         example[TEXT_COLUMN],
@@ -248,7 +248,7 @@ tokenizer = AutoTokenizer.from_pretrained(
     local_files_only=Path(BASE_MODEL_NAME).exists(),
 )
 
-# Tokenizacion del texto
+# Tokenizacion del texto por ejemplo tensor([[101, 1045, 12524, 1045,...]])
 tokenized_train = train_data.map(tokenize_function, batched=True)
 tokenized_test = test_data.map(tokenize_function, batched=True)
 
@@ -265,7 +265,7 @@ tokenized_test.set_format("torch", columns=["input_ids", "attention_mask", "labe
 # que usaremos para realizar clasificacion binaria
 model = AutoModelForSequenceClassification.from_pretrained(
     BASE_MODEL_NAME,
-    num_labels=len(label2id),
+    num_labels=len(label2id), # aquí el estamos entregando el número de clases
     id2label=id2label,
     label2id=label2id,
     local_files_only=Path(BASE_MODEL_NAME).exists(),
@@ -281,7 +281,7 @@ print(f"Usando dispositivo: {device}")
 #  PARAMETRIZACION Y DESEMPENO DEL MODELO
 ##############################################
 
-# Parametrizacion del modelo
+# Configuración de los parametros de entrenamiento
 training_args = TrainingArguments(
     output_dir=str(RESULTS_DIR),
     num_train_epochs=NUM_TRAIN_EPOCHS,
@@ -308,6 +308,7 @@ training_args = TrainingArguments(
 
 metrics_callback = SaveMetricsCallback()
 
+# Entrenamiento del modelo
 trainer = Trainer(
     model=model,
     args=training_args,

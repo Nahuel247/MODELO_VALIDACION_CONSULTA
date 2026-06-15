@@ -18,3 +18,4 @@ artifacts/metrics/*.csv
 artifacts/reports/*.csv
 models/trained/*
 !models/trained/.gitkeep
+outputs/
