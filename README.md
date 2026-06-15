@@ -79,6 +79,36 @@ Columnas esperadas:
 - `label`
 - `subtype` (opcional)
 
+## Cambiar archivo de entrada o modelo
+
+La configuracion central del proyecto esta en `src/config.py`.
+
+Si quieres entrenar con otro archivo CSV, cambia esta variable:
+
+```python
+RAW_DATASET_PATH = DATA_DIR / "raw" / "municipio_validacion_preguntas_400.csv"
+```
+
+El nuevo archivo debe mantener, al menos, las columnas:
+
+- `text`
+- `label`
+- `subtype` (opcional)
+
+Si quieres usar otro modelo base de Hugging Face, cambia:
+
+```python
+DEFAULT_BASE_MODEL_NAME = "FacebookAI/xlm-roberta-base"
+```
+
+Tambien puedes usar una copia local del modelo sin editar el codigo, definiendo la variable de entorno `BASE_MODEL_DIR` con la ruta correspondiente.
+
+El modelo entrenado se guarda por defecto en:
+
+```python
+TRAINED_MODEL_DIR = MODELS_DIR / "trained" / "municipio_question_validator"
+```
+
 ## Estructura
 
 ```text
